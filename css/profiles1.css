@@ -1,0 +1,247 @@
+
+
+/***** start global *****/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+}
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
+   
+
+}
+
+body{
+    background-color: #f3f3f3;
+    font-family: "Lora", serif;
+}
+
+:root {
+    --main-color: #4c9df2;
+    --nav-bar-color: #000;
+    --btn-color: #0078ff;
+    --footer-color: #0062d3;
+  }
+  
+  /***** End global *****/
+  
+  /***** start nav-bar *****/
+.navbar {
+    background-color: var(--nav-bar-color);
+  }
+  .nav-link {
+    color: #fff !important;
+    position: relative;
+  }
+  .navbar-brand {
+    color: #fff !important;
+  }
+  header nav .nav-link::after {
+    content: "";
+    width: 0%;
+    height: 1.5px;
+    background-color: #fff !important;
+    position: absolute;
+    bottom: -3px;
+    left: 0;
+    transition: 0.3s ease-in-out;
+  }
+  header nav .nav-link:hover::after {
+    width: 90%;
+  }
+  
+  /***** End nav-bar *****/
+
+
+
+
+   /* for input search */
+.input {
+    display: flex;
+    /* width: 60%; */
+    margin: 25px auto 5px auto;
+}
+
+
+
+/* all user card */
+.wrapper{
+  
+ 
+    /* height: 55vh;  */
+    width: 70%;
+    display: flex;
+    box-shadow: o 1px 20px 0 rgba(69,90, 100, 0.08);
+padding: 20px;
+margin: auto;
+    
+}
+   /* left side of card */
+.wrapper .left{
+    width: 35%;
+background: linear-gradient(101deg, rgba(0,114,211,1) 37%, rgba(18,75,138,1) 68%, rgba(19,87,144,1) 95%);
+    padding: 30px 25px;
+    border-top-left-radius: 5px;
+    border-bottom-left-radius: 5px;
+    text-align: center;
+    color: #fff;
+}
+
+.wrapper .left img{
+    width: 80%;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+
+.wrapper .left h3{
+    margin: 10px;
+    color: #000;
+} 
+  /* right side of card */
+.wrapper .right{
+    width: 65%;
+    background: #fff;
+    border-top-right-radius: 5px;
+    border-bottom-left-radius: 5px;
+    padding: 30px 25px;
+}
+
+.wrapper .right .info
+{
+    margin-bottom: 25px;
+}
+
+ .wrapper .right .info h3
+{
+    margin-bottom: 50px;
+    padding-bottom: 5px;
+    border-bottom: 1px solid #e0e0e0;
+    color: #353c4e;
+    text-transform: uppercase;
+    letter-spacing: 5px;
+}
+
+.wrapper .right .info_data{
+/* .wrapper .right .projects_data{ */
+    display: flex;
+    justify-content: space-between;
+}
+.wrapper .right .info_data .data
+{
+    width: 45%;
+}
+.wrapper .right .info_data .data h4
+{
+    color: #353c4e;
+    margin-bottom: 5px;
+}
+.wrapper .right .info_data .data a
+{
+    font-size: 18px;
+    margin-bottom: 10px;
+    color: #919aa3;
+    text-decoration: none;
+} 
+
+
+
+
+/* for social_media icons */
+.wrapper .social_media ul{
+    display: flex;
+}
+.wrapper .social_media ul li{
+    width: 40px;
+    height: 40px;
+    background-color:  #0078ff;
+    margin-right: 10px;
+    border-radius: 15px;
+    line-height: 45px;
+    text-align: center;
+}
+.wrapper .social_media ul li a{
+color: #fff;
+display: block;
+font-size: 20px;
+}
+.wrapper .social_media ul li :hover{
+    background-color:#0062d3 ;
+    border-radius: 15px;
+    
+    
+
+}
+
+.wrapper .social_media ul li a i{
+    border-radius: 20px;
+}
+
+    /* for see more link */
+ .see_more{
+    text-align: right;
+     margin-right: 20px; 
+    font-size: 16px;
+    margin-top: 50px;
+}
+
+.see_more a{
+    color: white;
+     /* background: linear-gradient(to right, #01a9ac, #01dbdf);  */
+     background-color:  #0078ff;
+    text-decoration: none;
+     border: 1px solid transparent;
+    border-radius: 5px;
+    padding: 5px;
+    margin-left: 10px;
+    
+}
+.see_more :hover{
+    background-color: #0062d3;
+    transition: 0.3;
+}
+
+/***** start footer *****/
+footer {
+    min-height: 20vh; 
+    background-color:black;
+    color: #fff;
+
+}
+  footer a {
+    color: #fff;
+  }
+  /***** End footer *****/
+
+
+
+.searchtestt{
+    flex-direction: column;
+    align-items: center;
+}
+
+.searchtestt .submitbtn{
+    width: 20%;
+}
+
+.input {
+    height: 40px;
+    line-height: 28px;
+    padding: 0 1rem;
+    width: 20%;
+    padding: 20px 20px;  border: 2px solid transparent;
+    border-radius: 8px;
+    outline: none;
+    background-color: #D9E8D8;
+    color: #0d0c22;
+    box-shadow: 0 0 5px #0062d3, 0 0 0 10px #f5f5f5eb;
+    transition: .3s ease;
+  }

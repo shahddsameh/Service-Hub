@@ -1,0 +1,148 @@
+/***** start global *****/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+}
+body {
+  font-family: "Lora", serif;
+}
+:root {
+  --main-color: #4c9df2;
+  --nav-bar-color: #000;
+  --btn-color: #0078ff;
+  --footer-color: #0062d3;
+}
+a {
+  text-decoration: none;
+}
+/***** End global *****/
+
+/***** start nav-bar *****/
+.navbar {
+  background-color: var(--nav-bar-color);
+}
+.nav-link {
+  color: #fff !important;
+  position: relative;
+}
+.navbar-brand {
+  color: #fff !important;
+}
+header nav .nav-link::after {
+  content: "";
+  width: 0%;
+  height: 1.5px;
+  background-color: #fff !important;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  transition: 0.3s ease-in-out;
+}
+header nav .nav-link:hover::after {
+  width: 90%;
+}
+
+/***** End nav-bar *****/
+
+/***** START services SECTION *****/
+
+
+
+
+.group {
+  display: flex;
+  justify-content: space-evenly;
+  line-height: 28px;
+  align-items: center;
+  position: relative;
+  width: 90%;
+  margin-top: 20px;
+  
+
+}
+
+.input {
+  height: 40px;
+  line-height: 28px;
+  /* padding: 0 1rem; */
+  width: 100%;
+padding: 20px 20px;  border: 2px solid transparent;
+  border-radius: 8px;
+  outline: none;
+  background-color: #D9E8D8;
+  color: #0d0c22;
+  box-shadow: 0 0 5px #0062d3, 0 0 0 10px #f5f5f5eb;
+  transition: .3s ease;
+}
+
+.input::placeholder {
+  color: #777;
+}
+
+.filterform{
+  display: flex;
+  flex-direction: column;
+  width: 200px;
+
+}
+
+.icon {
+  position: absolute;
+  left: 1rem;
+  fill: #777;
+  width: 1rem;
+  height: 1rem;
+}
+
+
+
+
+
+
+section#portfolio {
+  background-color: rgb(245, 245, 245);
+}
+
+
+section#services .card {
+  overflow: hidden;
+}
+section#services .card img {
+  transition: 0.3s ease-in-out;
+  cursor: pointer;
+}
+section#services .card .card-image:hover img {
+  transform: scale(1.1);
+}
+.nav-underline .nav-link.active {
+  color: #000 !important;
+}
+.nav-underline .nav-link {
+  color: #000 !important;
+  font-weight: 500;
+}
+.icons span {
+  color: goldenrod;
+}
+/***** End services SECTION *****/
+
+/***** start footer *****/
+footer {
+  min-height: 15vh;
+  background-color: #000;
+  color: #fff;
+  position: relative;
+  top: 20px;
+  width: 100%;
+  padding-bottom: 5px;
+  bottom: 0;
+ 
+}
+footer a {
+  color: #fff;
+}
+/***** End footer *****/

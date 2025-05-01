@@ -1,0 +1,279 @@
+/***** start global *****/
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+}
+body {
+  font-family: "Lora", serif;
+  
+}
+:root {
+  --main-color: #4c9df2;
+  --nav-bar-color: #000;
+  --btn-color: #0078ff;
+  --footer-color: #0062d3;
+}
+
+/***** End global *****/
+
+/***** start nav-bar *****/
+.navbar {
+  background-color: var(--nav-bar-color);
+}
+.nav-link {
+  color: #fff !important;
+  position: relative;
+}
+.navbar-brand {
+  color: #fff !important;
+}
+header nav .nav-link::after {
+  content: "";
+  width: 0%;
+  height: 1.5px;
+  background-color: #fff !important;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  transition: 0.3s ease-in-out;
+}
+header nav .nav-link:hover::after {
+  width: 90%;
+}
+
+/***** End nav-bar *****/
+
+
+#home {
+  background-image: linear-gradient(#000000b8, #000000b3), url(../imgs/home-photo1.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: center;
+  min-height: 100vh;
+  
+}
+
+#home{
+  display: flex;
+ justify-content: center;
+ align-items: center; 
+}
+
+#home .home-h3 h3{
+  color: #fff;
+  font-size: 40px;
+}
+
+#home .home-h3 h4{
+  text-align: center;
+  padding-top: 25px;
+  color: #fff;
+  font-size: 25px;
+}
+
+#home2{
+  background-image: linear-gradient(#000, #4c9df2, #0062d3 ,#fff);
+  min-height: 100vh;
+}
+
+.home2-container{
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  padding: 0 30px;
+  height: 100%;
+  margin-top: 60px;
+
+  
+}
+
+#home2 h3{
+  text-align: center;
+  padding-top: 5%;
+  color: #fff;
+}
+
+#home2 .div1{
+    width: 32.3333%;
+    border-style: solid;
+    padding: 20px 20px;
+    background-color: #fff;
+    border-color: #fff;
+    border-radius: 20px;
+    font-size: 20px;
+    text-align: center;
+    /* margin-top: 10px; */
+
+}
+
+#home2 .div1 h5{
+  font-size: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+#home2 .div1 p{
+  padding-top: 10px;
+  
+}
+
+#home2 .div2 h5{
+  font-size: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+#home2 .div2 p{
+  padding-top: 10px;
+  
+}
+
+#home2 .div3 h5{
+  font-size: 30px;
+  padding-bottom: 10px;
+  padding-top: 10px;
+}
+#home2 .div3 p{
+  padding-top: 10px;
+  
+}
+
+#file-line{
+  font-size: 40px;
+  
+}
+
+#home2 .div2{
+  width: 32.3333%;
+  border-style: solid;
+  padding: 20px 20px;
+  background-color: #fff;
+  border-color: #fff;
+  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
+  /* margin-top: 10px; */
+}
+
+#home2 .div3{
+  width: 32.3333%;
+  border-style: solid;
+  padding: 20px 20px;
+  background-color: #fff;
+  border-color: #fff;
+  border-radius: 20px;
+  font-size: 20px;
+  text-align: center;
+  /* margin-top: 10px; */
+}
+#home2 .div3:hover , #home2 .div2:hover,#home2 .div1:hover{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: 0.4s;
+}
+#home2 .div3:hover , #home2 .div2:hover,#home2 .div1:hover{
+  box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+    transition: 0.4s;
+    cursor: pointer;
+}
+#home2 .div3:hover i , #home2 .div2:hover i,#home2 .div1:hover i{
+  transform: scale(1.4);
+  transition: .4s;
+}
+
+
+#home3{
+  /* background-image: linear-gradient(#0062d3, #4c9df2, #000 ); */
+  /* background-image: linear-gradient(#000, #4c9df2, #0062d3); */
+  min-height: 100vh;
+}
+
+#home3 h3{
+  text-align: center;
+  margin-top: 5%;
+}
+
+.home3-container{
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  padding: 0 30px;
+  margin-top: 5%;
+}
+
+.home3-div {
+  width: 31.3333%;
+  position: relative;
+}
+
+.home3-div a img{
+  width: 100%;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+.home3-div .layer{
+  position: absolute;
+  inset: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #00000048; 
+  color: #fff;
+  opacity: 0;
+  border-radius: 20px;
+  transition: opacity .3s;
+}
+.home3-div .layer h3{
+  font-size: 50px;
+
+}
+.home3-div .layer:hover{
+  opacity: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/***** start footer *****/
+footer {
+  min-height: 20vh;
+  background-color: #000;
+  color: #fff;
+ 
+}
+footer a {
+  color: #fff;
+}
+/***** End footer *****/

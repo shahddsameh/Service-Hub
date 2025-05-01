@@ -1,0 +1,133 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Oswald", sans-serif;
+
+}
+
+:root {
+    --main-color: #4c9df2;
+    --nav-bar-color: #000;
+    --btn-color: #0078ff;
+    --footer-color: #0062d3;
+    --dark-text-color: #03264e;
+  }
+
+    .loginn{
+      background: rgb(0,114,211);
+      background: linear-gradient(101deg, rgba(0,114,211,1) 37%, rgba(18,75,138,1) 68%, rgba(19,87,144,1) 95%);
+      width: 100%;
+      min-height: 90vh;
+    }
+
+.formholder{
+    margin-bottom: 4%;
+    width: max-content;
+    padding: 10px ;
+}
+.form {
+    background-color: #fff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 1rem;
+    max-width: 350px;
+    border-radius: 0.5rem;
+    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
+  }
+  
+  .form-title {
+    font-size: 1.25rem;
+    line-height: 1.75rem;
+    font-weight: 600;
+    text-align: center;
+    color: var(--dark-text-color);
+  }
+  .instructions{
+    text-align: center;
+    font-size: 1.1rem;
+  }
+  
+  .input-container {
+    position: relative;
+  }
+  
+  .input-container input{
+    outline: none;
+    border: 1px solid #03264e;
+    margin: 8px 0;
+  }
+  
+  .input-container input {
+    background-color: #fff;
+    padding: 1rem;
+    padding-right: 3rem;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    width: 300px;
+    border-radius: 0.5rem;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+  }
+
+  .incorrect2{
+    color: #fff;
+    background-color: rgb(214, 97, 97);
+    padding: 10px 5px;
+    border-radius: 15px;
+    text-align: center;
+  }
+  
+  .submit {
+    display: block;
+    padding-top: 0.75rem;
+    padding-bottom: 0.75rem;
+    padding-left: 1.25rem;
+    padding-right: 1.25rem;
+    background-color: var(--footer-color);
+    color: #ffffff;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    font-weight: 500;
+    width: 100%;
+    border-radius: 0.5rem;
+    text-transform: uppercase;
+    border: none;
+    outline: none;
+    margin: 1rem;
+  }
+  
+  .signup-link {
+    color: #6B7280;
+    font-size: 0.875rem;
+    line-height: 1.25rem;
+    text-align: center;
+  }
+  
+  .signup-link a {
+    text-decoration: underline;
+  }
+
+  footer{
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+  }
+
+  
+  .logo{
+    position: absolute;
+    z-index: 2;
+    left: 5%;
+    top: 4%;
+  }
+  .fa-franc-sign{
+    font-size: 4rem;
+    color: #fff;
+    transition: ease-in-out 1s;
+  }
+  .fa-franc-sign:hover{
+    transform: rotate(360deg);
+    cursor: pointer;
+  }

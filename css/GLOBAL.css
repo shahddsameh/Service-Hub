@@ -1,0 +1,58 @@
+/***** start global *****/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+}
+body {
+  font-family: "Lora", serif;
+}
+:root {
+  --main-color: #4c9df2;
+  --nav-bar-color: #000;
+  --btn-color: #0078ff;
+  --footer-color: #0062d3;
+}
+
+/***** End global *****/
+
+/** start nav-bar **/
+.navbar {
+  background-color: var(--nav-bar-color);
+}
+.nav-link {
+  color: #fff !important;
+  position: relative;
+}
+.navbar-brand {
+  color: #fff !important;
+}
+header nav .nav-link::after {
+  content: "";
+  width: 0%;
+  height: 1.5px;
+  background-color: #fff !important;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  transition: 0.3s ease-in-out;
+}
+header nav .nav-link:hover::after {
+  width: 90%;
+}
+
+/** End nav-bar **/
+
+/***** start footer *****/
+footer {
+  min-height: 20vh;
+  background-color: var(--nav-bar-color);
+  color: #fff;
+}
+footer a {
+  color: #fff;
+}
+/***** End footer *****/

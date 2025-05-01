@@ -1,0 +1,28 @@
+@media(max-width:911.98px){
+    #home2 .div1 {
+        width: 100%;
+    }
+    #home2 .div2 {
+        width: 100%;
+        margin: 20px 0;
+    }
+    #home2 .div3 {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .home3-div{
+        width: 100%;
+        margin-bottom: 20px;
+
+    }
+
+    #home3 h3{
+        padding: 0 15px;
+    }
+
+    #home2 h3{
+        /* margin-top: 30px; */
+        padding-top: 15%;
+    }
+}

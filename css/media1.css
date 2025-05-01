@@ -1,0 +1,51 @@
+
+ /* Tablet */
+ @media screen and (max-width:1000px) and (min-width:768px) {
+  
+ }
+
+
+
+/* Large Phone land */
+@media screen and (max-width:767px) and (min-width:601px) {
+    /* .wrapper .left h3{
+      margin-left: 0px;
+       font-size: x-large; 
+    } */
+
+  
+}
+
+
+
+
+
+@media(max-width:991.98px){
+    
+    .wrapper{
+       
+        width: 95%;
+    }
+}
+
+
+/* Small Phone */
+@media screen and (max-width:767.98px) {
+
+   
+   
+    .wrapper{
+        display: block;
+        width: 95%;
+    }
+
+    .wrapper .left{
+        width: 100%;
+
+    }
+    
+    .wrapper .right{
+        width: 100%;
+    }
+
+}

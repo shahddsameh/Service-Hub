@@ -1,0 +1,292 @@
+/***** start global *****/
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: "Oswald", sans-serif;
+}
+body {
+  font-family: "Lora", serif;
+}
+:root {
+  --main-color: #4c9df2;
+  --nav-bar-color: #000;
+  --btn-color: #0078ff;
+  --footer-color: #0062d3;
+}
+a {
+  text-decoration: none;
+}
+/***** End global *****/
+
+/***** start nav-bar *****/
+.navbar {
+  background-color: var(--nav-bar-color);
+}
+.nav-link {
+  color: #fff !important;
+  position: relative;
+}
+.navbar-brand {
+  color: #fff !important;
+}
+header nav .nav-link::after {
+  content: "";
+  width: 0%;
+  height: 1.5px;
+  background-color: #fff !important;
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  transition: 0.3s ease-in-out;
+}
+header nav .nav-link:hover::after {
+  width: 90%;
+}
+
+/***** End nav-bar *****/
+/* comments section */
+
+
+.comment-container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.rating {
+  display: flex;
+  flex-direction: row-reverse;
+  gap: 0.3rem;
+  margin-bottom: 40px;
+  --stroke: #666;
+  --fill: #ffc73a;
+}
+
+.rating input {
+  appearance: unset;
+}
+
+.rating label {
+  cursor: pointer;
+}
+
+.rating svg {
+  width: 3rem;
+  height: 3rem;
+  overflow: visible;
+  fill: transparent;
+  stroke: var(--stroke);
+  stroke-linejoin: bevel;
+  stroke-dasharray: 12;
+  animation: idle 4s linear infinite;
+  transition: stroke 0.2s, fill 0.5s;
+}
+
+@keyframes idle {
+  from {
+    stroke-dashoffset: 24;
+  }
+}
+
+.rating label:hover svg {
+  stroke: var(--fill);
+}
+
+.rating input:checked ~ label svg {
+  transition: 0s;
+  animation: idle 4s linear infinite, yippee 0.75s backwards;
+  fill: var(--fill);
+  stroke: var(--fill);
+  stroke-opacity: 0;
+  stroke-dasharray: 0;
+  stroke-linejoin: miter;
+  stroke-width: 8px;
+}
+
+@keyframes yippee {
+  0% {
+    transform: scale(1);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30% {
+    transform: scale(0);
+    fill: var(--fill);
+    fill-opacity: 0;
+    stroke-opacity: 1;
+    stroke: var(--stroke);
+    stroke-dasharray: 10;
+    stroke-width: 1px;
+    stroke-linejoin: bevel;
+  }
+
+  30.1% {
+    stroke: var(--fill);
+    stroke-dasharray: 0;
+    stroke-linejoin: miter;
+    stroke-width: 8px;
+  }
+
+  60% {
+    transform: scale(1.2);
+    fill: var(--fill);
+  }
+}
+
+
+
+
+
+.card {
+  background-color: #fff;
+  border-radius: 10px;
+  padding: 20px;
+  width: 350px;
+  display: flex;
+  flex-direction: column;
+}
+
+.title {
+  font-size: 24px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.form {
+  margin-top: 20px;
+  display: flex;
+  flex-direction: column;
+}
+
+.group {
+  position: relative;
+}
+
+.form .group label {
+  font-size: 14px;
+  color: rgb(99, 102, 102);
+  position: absolute;
+  top: -10px;
+  left: 10px;
+  background-color: #fff;
+  transition: all .3s ease;
+}
+
+.form .group input,
+.form .group textarea {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  margin-bottom: 20px;
+  outline: 0;
+  width: 100%;
+  background-color: transparent;
+}
+
+.form .group input:placeholder-shown+ label, .form .group textarea:placeholder-shown +label {
+  top: 10px;
+  background-color: transparent;
+}
+
+.form .group input:focus,
+.form .group textarea:focus {
+  border-color: #3366cc;
+}
+
+.form .group input:focus+ label, .form .group textarea:focus +label {
+  top: -10px;
+  left: 10px;
+  background-color: #fff;
+  color: #3366cc;
+  font-weight: 600;
+  font-size: 14px;
+}
+
+.form .group textarea {
+  resize: none;
+  height: 100px;
+}
+
+.form button {
+  background-color: #3366cc;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.form button:hover {
+  background-color: #27408b;
+}
+
+.other-comment-container{
+
+  min-height: 50vh;
+  /* background-color: #e9e8e8; */
+  background-image: linear-gradient(#e9e8e8, #fff);
+  border-radius: 20px;
+  padding-top: 20px ;
+  display: flex;
+  align-items: start;
+  flex-wrap: wrap;
+  margin-bottom: 5%;
+}
+.commentitem{
+  display: flex;
+  align-items: center;
+  padding: 20px;
+  min-height: 75px;
+  margin-top:1% ;
+  box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;  
+  width: 100%;
+}
+.profilepic{
+  border: #2c2b2b solid 1px;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+#profilepicc{
+  border-radius: 50%;
+}
+.commentcontent{
+  margin-left: 2%;
+}
+.commentitem #ratecomment span{
+  color: #000;
+}
+.profilepic-name{
+  display: flex;
+  flex-direction: column;
+}
+.profilename{
+  font-weight: 700;
+}
+/* end comments section */
+
+/***** start footer *****/
+footer {
+  min-height: 20vh;
+  background-color: #000;
+  color: #fff;
+}
+footer a {
+  color: #fff;
+}
+/***** End footer *****/
+
+
+
