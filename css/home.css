@@ -202,18 +202,32 @@ header nav .nav-link:hover::after {
   margin-top: 5%;
 }
 
-.home3-container{
+.home3-container {
   display: flex;
-  justify-content: space-between;
   flex-wrap: wrap;
+  gap: 30px; /* Use gap instead of space-between */
   padding: 0 30px;
   margin-top: 5%;
 }
 
+
 .home3-div {
-  width: 31.3333%;
+  width: calc(33.33% - 20px); /* accounts for gap */
   position: relative;
 }
+
+@media (max-width: 992px) {
+  .home3-div {
+    width: calc(50% - 20px);
+  }
+}
+@media (max-width: 600px) {
+  .home3-div {
+    width: 100%;
+  }
+}
+
+
 
 .home3-div a img{
   width: 100%;
@@ -237,9 +251,10 @@ header nav .nav-link:hover::after {
   font-size: 50px;
 
 }
-.home3-div .layer:hover{
+.home3-div:hover .layer {
   opacity: 1;
 }
+
 
 
 

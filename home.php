@@ -3,6 +3,21 @@ include("connection.php");
 if(!$_SESSION['user_id']){
   header("location:login.php");
 }
+// Fetch all types
+$select_types = "SELECT * FROM types LIMIT 3";
+$run_select_types = mysqli_query($connect, $select_types);
+
+// Define images for each type_id
+$type_images = [
+    2 => './imgs/accounting.jpg',
+    4 => './imgs/business.jpg',
+    6 => './imgs/graphic-designer.jpg',
+    7 => './imgs/photography.jpg',
+    8 => './imgs/social-media.jpg',
+    9 => './imgs/translating.jpg',
+    10 => './imgs/web-design.jpg',
+    11 => './imgs/web-development.jpg'
+];
 ?>
 
 <!DOCTYPE html>
@@ -41,7 +56,7 @@ if(!$_SESSION['user_id']){
     <?php if(isset($_SESSION['user_id'])){ ?>
     <nav class="navbar navbar-expand-lg navbar-light" data-bs-theme="dark">
       <div class="container">
-        <a class="navbar-brand fw-bold d-flex justify-content-center align-items-center gap-4" href="home.html">
+        <a class="navbar-brand fw-bold d-flex justify-content-center align-items-center gap-4" href="home.php">
           <i class="fa-solid fa-franc-sign fs-1"></i>
           <h2 class="fs-2">Service Hub</h2>
         </a>
@@ -141,36 +156,25 @@ if(!$_SESSION['user_id']){
   </section>
 
   <section id="home3">
-    <h3>All creative and professional services to develop and grow your business</h3>
-    <div class="home3-container">
+  <h3>All creative and professional services to develop and grow your business</h3>
+  <div class="home3-container">
+    <?php while($type = mysqli_fetch_assoc($run_select_types)) {
+      $type_id = $type['type_id'];
+      $type_name = $type['type_name'];
+      $img_src = isset($type_images[$type_id]) ? $type_images[$type_id] : './imgs/default.jpg';
+    ?>
       <div class="home3-div">
+        <a href="types.php?view=<?php echo $type_id; ?>">
+          <div class="layer">
+            <h3><?php echo htmlspecialchars($type_name); ?></h3>
+          </div>
+          <img src="<?php echo $img_src; ?>" alt="<?php echo htmlspecialchars($type_name); ?>">
+        </a>
+      </div>
+    <?php } ?>
+  </div>
+</section>
 
-        <a href="services.php">
-          <div class="layer">
-            <h3>Marketing</h3>
-          </div>
-        </a>
-        <a href="services.php"><img src="./imgs/bussiness-1.jpg" alt="image"></a>
-      </div>
-      <div class="home3-div">
-        <a href="services.php">
-          <div class="layer">
-            <h3>Front-End</h3>
-          </div>
-        </a>
-        <a href="services.php"><img src="./imgs/design2.jpg" alt="image"></a>
-      </div>
-      <div class="home3-div">
-        <a href="services.php">
-          <div class="layer">
-            <h3>Software</h3>
-          </div>
-        </a>
-        <a href="services.php"><img src="./imgs/development-2.jpg" alt="image"></a>
-      </div>
-
-    </div>
-  </section>
 
 
 

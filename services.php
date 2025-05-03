@@ -14,7 +14,9 @@ if(isset($_GET['details'])){
  header("location:services-details.php");
 }
 
-$select = "SELECT * FROM `user` JOIN `services` ON `user`.`user_id` = `services`.`user_id` ";  
+$select = "SELECT * FROM `user` 
+           JOIN `services` ON `user`.`user_id` = `services`.`user_id` 
+           WHERE services.user_id != {$_SESSION['user_id']}";
 $runselect = mysqli_query($connect, $select); 
 $array=mysqli_fetch_array($runselect);
 $rows = $array['service_id'];
@@ -33,11 +35,20 @@ while ($row = mysqli_fetch_assoc($run_select_rate)) {
 $run_search = array();
 
 if(isset($_POST['search_btn'])){
-    $text = $_POST['text'];
-    $search = "SELECT *,`services`.`image` AS `simg` FROM `services` JOIN `user` ON `services`.`user_id` = `user`.`user_id` WHERE (`service_name` LIKE '%$text%') OR
-       (`price` LIKE '%$text%') OR (`currency` LIKE '%$text%') OR (`priceper` LIKE '%$text%') OR (`type_id` LIKE '%$text%') ";
-    $run_search = mysqli_query($connect, $search);
+  $text = $_POST['text'];
+  $search = "SELECT `services`.`image` AS `simg`, `services`.`service_name`, `services`.`price`, 
+                    `services`.`currency`, `services`.`priceper`, `services`.`type_id`, 
+                    `user`.`username`, `user`.`email`
+             FROM `services` 
+             JOIN `user` ON `services`.`user_id` = `user`.`user_id` 
+             WHERE (`service_name` LIKE '%$text%') OR
+                   (`price` LIKE '%$text%') OR (`currency` LIKE '%$text%') OR
+                   (`priceper` LIKE '%$text%') OR (`type_id` LIKE '%$text%') AND 
+                   services.user_id != {$_SESSION['user_id']}
+                   ";
+  $run_search = mysqli_query($connect, $search);
 }
+
 
 ?>
 <!DOCTYPE html>
@@ -75,7 +86,7 @@ if(isset($_POST['search_btn'])){
     <?php if(isset($_SESSION['user_id'])){ ?>
     <nav class="navbar navbar-expand-lg navbar-light" data-bs-theme="dark">
       <div class="container">
-        <a class="navbar-brand fw-bold d-flex justify-content-center align-items-center gap-4" href="home.html">
+        <a class="navbar-brand fw-bold d-flex justify-content-center align-items-center gap-4" href="home.php">
           <i class="fa-solid fa-franc-sign fs-1"></i>
           <h2 class="fs-2">Service Hub</h2>
         </a>
@@ -290,9 +301,11 @@ if(isset($_POST['search_btn'])){
                         </p>
                       </div>
                       <div class="btn">  
-            <a href="mailto:<?php echo $value['user_email']; ?>?icon<?php echo $value['user_email']; ?>" class="px-2">  
-                <span><i class="fa-solid fa-message fa-beat fs-4"></i></span>  
-            </a>  
+            <a href="mailto:<?php echo $value['user_email']; ?>?subject=Service%20Inquiry" class="px-2">
+    <span><i class="fa-solid fa-message fa-beat fs-4"></i></span>
+  
+</a>
+ 
             <a href="services.php?details=<?php echo $value['service_id']; ?>" class="btn btn-primary">View Details</a> 
         </div>
                     </div>

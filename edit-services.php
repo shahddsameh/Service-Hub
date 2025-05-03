@@ -123,7 +123,7 @@ $runselection=mysqli_query($connect , $selection);
     <?php if(isset($_SESSION['user_id'])){ ?>
     <nav class="navbar navbar-expand-lg navbar-light" data-bs-theme="dark">
       <div class="container">
-        <a class="navbar-brand fw-bold d-flex justify-content-center align-items-center gap-4" href="home.html">
+        <a class="navbar-brand fw-bold d-flex justify-content-center align-items-center gap-4" href="home.php">
           <i class="fa-solid fa-franc-sign fs-1"></i>
           <h2 class="fs-2">Service Hub</h2>
         </a>

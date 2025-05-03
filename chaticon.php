@@ -1,24 +1,31 @@
 <?php
 include 'connection.php';
-if(!$_SESSION['user_id']){
-    header("location:login.php");
-  }
-if(isset($_GET['details'])){
-    $service_id=$_GET['details'];
+// Redirect if user is not logged in
+if (!isset($_SESSION['user_id'])) {
+    header("Location: login.php");
+    exit(); // Always good to stop execution after redirect
+}
 
-    
-    
+// Check if service details are requested
+if (isset($_GET['details'])) {
+    $service_id = $_GET['details'];
 
-    $select="SELECT * FROM `user` JOIN `services` ON `user`.`user_id`=`services`.`user_id` WHERE `service_id` =$service_id";
-    $runselect=mysqli_query($connect,$SELECT);
-    $user_data=mysqli_fetch_assoc($runselect);
-    $user_email=$user_data['user_email'];
+    // Use lowercase variable for the query
+    $select = "SELECT * FROM `user` JOIN `services` ON `user`.`user_id` = `services`.`user_id` WHERE `service_id` = $service_id";
+    $runselect = mysqli_query($connect, $select); //
+
+    // Check if result exists
+    if ($runselect && mysqli_num_rows($runselect) > 0) {
+        $user_data = mysqli_fetch_assoc($runselect);
+        $user_email = $user_data['user_email'];
+    } else {
+        $user_email = "notfound@example.com"; // fallback
+    }
+} else {
+    // Handle missing service ID
+    $user_email = "notfound@example.com";
 }
 ?>
-
-
-
-
 
 
 <!DOCTYPE html>

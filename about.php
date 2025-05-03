@@ -39,7 +39,7 @@ if(!$_SESSION['user_id']){
     <?php if(isset($_SESSION['user_id'])){ ?>
     <nav class="navbar navbar-expand-lg navbar-light" data-bs-theme="dark">
       <div class="container">
-        <a class="navbar-brand fw-bold d-flex justify-content-center align-items-center gap-4" href="home.html">
+        <a class="navbar-brand fw-bold d-flex justify-content-center align-items-center gap-4" href="home.php">
           <i class="fa-solid fa-franc-sign fs-1"></i>
           <h2 class="fs-2">Service Hub</h2>
         </a>
@@ -138,11 +138,9 @@ if(!$_SESSION['user_id']){
 
           </div>
 
-          <Label class="fw-bold">Description for Our website :</Label>
           <p>
-            Welcome to [Service hub], your premier destination for exceptional services. We take pride in offering a
-            wide range of services designed to meet your every need by a team of highly skilled professionals and a
-            commitment to excellence, we strive to deliver unparalleled customer satisfaction.
+          Welcome to [Service Hub] — where skills meet opportunity.
+          Whether you're here to offer your services or find the right expert for your project, Service Hub makes it simple and transparent. Explore a wide range of freelancers and professionals, compare prices per hour or per project, check real ratings, and connect instantly. Designed for both freelancers and clients, we make collaboration easy, reliable, and efficient.
           </p>
           <!-- <div class="d-flex gap-3">
               <Label class="fw-bold pb-3">Price of the Course :</Label> -->

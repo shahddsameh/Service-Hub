@@ -20,6 +20,10 @@ $phone_number=$_POST['phone_number'];
 $url1=$_POST['url1'];
 $url2=$_POST['url2'];
 $url3=$_POST['url3'];
+ // Regular expression patterns for social media URLs
+ $facebookPattern = '/^https?:\/\/(www\.)?facebook\.com\/[a-zA-Z0-9(\.\?)?]/';
+ $linkedinPattern = '/^https?:\/\/(www\.)?linkedin\.com\/in\/[a-zA-Z0-9\-]+/';
+ $instagramPattern = '/^https?:\/\/(www\.)?instagram\.com\/[a-zA-Z0-9_\-]+\/?$/';
 $about_me=$_POST['about_me'];
 $lowercase=preg_match('@[a-z]@',$user_password);
 $uppercase=preg_match('@[A-Z]@',$user_password);
@@ -33,25 +37,24 @@ $Uploadfile= move_uploaded_file($_FILES['image']['tmp_name'],"imgs/".$_FILES['im
 
 // valditions
 
-if(filter_var($url1, FILTER_VALIDATE_URL) === false) {
+if (!empty($url1) && !preg_match($facebookPattern, $url1)) {
   $urlV = true;
-
-} elseif (filter_var($url2, FILTER_VALIDATE_URL) === false){
-  $urlV = true;
-}
-elseif (filter_var($url3, FILTER_VALIDATE_URL) === false){
+} elseif (!empty($url2) && !preg_match($instagramPattern, $url2)) {
   $urlV = true;
 }
-elseif(strlen($phone_number)!=11){
+elseif (!empty($url3) && !preg_match($linkedinPattern, $url3)) {
+  $urlV = true;
+}
+elseif(!empty($phone_number) && strlen($phone_number) != 11) {
   $phone = true;
 }
 
-elseif($lowercase<1|| $uppercase<1 ||  $number<1 ||  $specialcharacter<1){
+elseif(!empty($user_password) && ($lowercase < 1 || $uppercase < 1 || $number < 1 || $specialcharacter < 1)){
 
   $pass = true;
     }
 
-elseif (!filter_var($Email, FILTER_VALIDATE_EMAIL)) {
+elseif (!empty($Email) && !filter_var($Email, FILTER_VALIDATE_EMAIL)) {
   $EmailErr = true;
     }
 
@@ -70,7 +73,7 @@ if($run_update=== true) {
 header("location:myprofile.php");
 }
 }else{
-  $update="UPDATE `user` SET `firstname`='$firstname' , `lastname`='$lastname',  `user_email`='$Email',`user_password`='$user_password' ,`job_title`='$job_title',`phone_number`='$phone_number', `url1`='$url1',`url2`='$url2',`url3`='$url3',`about me`='$about_me' ";
+  $update="UPDATE `user` SET `firstname`='$firstname' , `lastname`='$lastname',  `user_email`='$Email',`user_password`='$user_password' ,`job_title`='$job_title',`phone_number`='$phone_number', `url1`='$url1',`url2`='$url2',`url3`='$url3',`about me`='$about_me' WHERE `user_id`=$user_id";
 $run_update=mysqli_query($connect,$update);
 if($run_update=== true) {
     echo "Profile Updated Successfully" ;
@@ -148,7 +151,7 @@ $about_me=$fetch['about me'];
     <?php if(isset($_SESSION['user_id'])){ ?>
     <nav class="navbar navbar-expand-lg navbar-light" data-bs-theme="dark">
       <div class="container">
-        <a class="navbar-brand fw-bold d-flex justify-content-center align-items-center gap-4" href="home.html">
+        <a class="navbar-brand fw-bold d-flex justify-content-center align-items-center gap-4" href="home.php">
           <i class="fa-solid fa-franc-sign fs-1"></i>
           <h2 class="fs-2">Service Hub</h2>
         </a>
@@ -294,7 +297,7 @@ $about_me=$fetch['about me'];
       <?php 
         if($urlV){
             ?>
-<p class="incorrect2">Please make sure to put a URL</p>
+<p class="incorrect2">One or more URLs are invalid!</p>
 
             <?php
         }
